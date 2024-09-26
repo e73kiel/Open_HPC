@@ -1,22 +1,22 @@
-[contents]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-목차
-[1]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-1-introduction
-[2]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-2-network-and-firewall-setup-to-base-operating-system-bos
-[3]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-3-install-openhpc-components
-[3.1]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-31-enable-openhpc-repository-for-local-use
-[3.3]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-33-add-provisioning-services-on-master-node
-[3.4]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-34-add-resource-management-services-on-master-node
-[3.5]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-35-optionally-add-infiniband-support-services-on-master-node
-[3.7]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-37-complete-basic-warewulf-setup-for-master-node
-[3.8]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-37-complete-basic-warewulf-setup-for-master-node
-[3.9]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-39-finalizing-provisioning-configuration
-[3.10]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-310-boot-compute-nodes
-[4]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-4-install-openhpc-development-components
-[5]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-5-resource-manager-startup
-[6]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-6-slurmdbd-sacctmgr-cgroup
-[7]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#-7-gpu-node-provisioning-of-openhpc-cluster
-[END]: OpenHPC%20Cluster%20Building%20(v2.4-Rocky8%20Base%20OS).md#end
+[contents]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-목차
+[1]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-1-introduction
+[2]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-2-network-and-firewall-setup-to-base-operating-system-bos
+[3]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-3-install-openhpc-components
+[3.1]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-31-enable-openhpc-repository-for-local-use
+[3.3]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-33-add-provisioning-services-on-master-node
+[3.4]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-34-add-resource-management-services-on-master-node
+[3.5]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-35-optionally-add-infiniband-support-services-on-master-node
+[3.7]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-37-complete-basic-warewulf-setup-for-master-node
+[3.8]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-37-complete-basic-warewulf-setup-for-master-node
+[3.9]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-39-finalizing-provisioning-configuration
+[3.10]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-310-boot-compute-nodes
+[4]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-4-install-openhpc-development-components
+[5]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-5-resource-manager-startup
+[6]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-6-slurmdbd-sacctmgr-cgroup
+[7]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#-7-gpu-node-provisioning-of-openhpc-cluster
+[END]: OpenHPC%20Cluster%20Building%20(v3.0-Rocky9%20Base%20OS).md#end
 
-# Dasandata Standard Recipes of OpenHPC Cluster Building (v2.4-Rocky8 Base OS)[2022.04]
+# Dasandata Standard Recipes of OpenHPC Cluster Building (v3.0-Rocky9 Base OS)[2023.10]
 
 \# 참조 링크 : http://openhpc.community/  
 \# Root 로 로그인 하여 설치를 시작 합니다.  
@@ -55,7 +55,7 @@ OpenHPC Cluster 의 설치 방법 입니다.
 편의상 필요한 부분들을 제외/추가/수정 하였습니다.   
 
 자세한 내용은 공식 Install Recipe 를 참조 하시면 좋습니다 :)  
-http://openhpc.community/downloads/  
+https://github.com/openhpc/ohpc/wiki/3.x 
 
 궁금하신 점이나 오류, 오탈자 등을 발견 하시면 아래 주소로 메일 부탁 드립니다.
 mail@dasandata.co.kr  
@@ -77,7 +77,7 @@ cat << EOF > /usr/local/sbin/dasan_ohpc_variable.sh
 export CLUSTER_NAME=OpenHPC_Dasandata # 변경 필요
 
 # 노드 배포 이미지 경로 (chroot)
-export CHROOT=/opt/ohpc/admin/images/rocky8
+export CHROOT=/opt/ohpc/admin/images/rocky9
 
 # MASTER 의 이름 과 IP.
 export MASTER_HOSTNAME=$(hostname -s)
@@ -118,9 +118,7 @@ ip a    # 인터페이스 목록 확인
 
 ## ## 2.2 Master 의 외부/내부 인터페이스 설정내용 확인, 필요한 경우 설정.
 ```bash
-cat /etc/sysconfig/network-scripts/ifcfg-${EXT_NIC}
-
-cat /etc/sysconfig/network-scripts/ifcfg-${INT_NIC}
+nmtui  # NetworkMakager UserInterface.
 ```
 
 ## ## 2.3 방화벽 zone 설정 변경
@@ -156,7 +154,7 @@ yum repolist
 
 # Install to OpenHPC repository.
 yum -y install \
-http://repos.openhpc.community/OpenHPC/2/EL_8/x86_64/ohpc-release-2-1.el8.x86_64.rpm \
+http://repos.openhpc.community/OpenHPC/3/EL_9/x86_64/ohpc-release-3-1.el9.x86_64.rpm \
 >> ~/dasan_log_ohpc_openhpc_repository.txt 2>&1  
 
 tail ~/dasan_log_ohpc_openhpc_repository.txt
@@ -166,7 +164,7 @@ yum repolist | grep OpenHPC
 
 # yum enable Powertools
 yum -y install dnf-plugins-core
-yum config-manager --set-enabled powertools
+yum config-manager --set-enabled crb
 
 ```
 
@@ -191,6 +189,7 @@ cat /etc/chrony.conf | grep -v "#\|^$"
 systemctl enable chronyd && systemctl restart chronyd
 
 # chrony가 동기화되었는지 확인
+sleep 10
 chronyc tracking
 chronyc sources
 chronyc sourcestats
@@ -208,12 +207,16 @@ yum -y install ohpc-slurm-server \
 tail ~/dasan_log_ohpc_resourcemanager_slurm.txt  
 
 # Use ohpc-provided file for starting SLURM configuration
-cp /etc/slurm/slurm.conf.ohpc /etc/slurm/slurm.conf
+cp /etc/slurm/slurm.conf.ohpc     /etc/slurm/slurm.conf
+# Setup default cgroups file
+cp /etc/slurm/cgroup.conf.example /etc/slurm/cgroup.conf
 
 cat /etc/slurm/slurm.conf
 
+cat /etc/slurm/cgroup.conf
+
 # Identify resource manager hostname on master host
-perl -pi -e "s/ControlMachine=\S+/ControlMachine=${MASTER_HOSTNAME}/" \
+perl -pi -e "s/SlurmctldHost=\S+/SlurmctldHost=${MASTER_HOSTNAME}/" \
    /etc/slurm/slurm.conf
 
 # Identify resource manager ClusterName
@@ -221,9 +224,14 @@ perl -pi -e "s/ClusterName=\S+/ClusterName=${CLUSTER_NAME}/" \
    /etc/slurm/slurm.conf
 
 # 중복된 설정값 2개중 1개 제거
-sed -i  '/jobcomp\/none/d'   /etc/slurm/slurm.conf
+sed -i  's/ReturnToService=1/d'          /etc/slurm/slurm.conf
+echo "ReturnToService=1"             >>  /etc/slurm/slurm.conf
 
-cat /etc/slurm/slurm.conf
+# 누락된 CR_Core 옵션 추가.
+echo "SelectTypeParameters=CR_Core"  >>  /etc/slurm/slurm.conf 
+
+
+cat /etc/slurm/slurm.conf | grep -v "^#\|^$"
 
 ```
 
@@ -234,7 +242,7 @@ cat /etc/slurm/slurm.conf
 ### ### 3.5.1 Install InfiniBand support on master node
 
 ```bash
-yum -y groupinstall "InfiniBand Support" >> ~/dasan_log_ohpc_IBSupport.txt 2>&1
+yum -y groupinstall "InfiniBand Support"        >> ~/dasan_log_ohpc_IBSupport.txt 2>&1
 tail -1 ~/dasan_log_ohpc_IBSupport.txt
 
 yum -y install opensm libibverbs-utils libpsm2  >> ~/dasan_log_ohpc_IBSupport.txt 2>&1
@@ -243,6 +251,9 @@ tail -1 ~/dasan_log_ohpc_IBSupport.txt
 
 ### ### 3.5.2 Load InfiniBand drivers
 ```bash
+udevadm trigger --type=devices --action=add
+systemctl restart rdma-load-modules@infiniband.service
+
 systemctl enable opensm
 systemctl start opensm
 ```
@@ -255,10 +266,12 @@ cp  /opt/ohpc/pub/examples/network/centos/ifcfg-ib0   /etc/sysconfig/network-scr
 
 ### ### 3.5.4 Define local IPoIB(IP Over InfiniBand) address and netmask
 ```bash
-sed -i "s/master_ipoib/${sms_ipoib}/"      /etc/sysconfig/network-scripts/ifcfg-ib0
-sed -i "s/ipoib_netmask/${ipoib_netmask}/" /etc/sysconfig/network-scripts/ifcfg-ib0
+sed -i "s/master_ipoib/172.1.1.200/"      /etc/sysconfig/network-scripts/ifcfg-ib0
+sed -i "s/ipoib_netmask/255.255.255.0/"   /etc/sysconfig/network-scripts/ifcfg-ib0
 
 echo  "MTU=4096"  >>  /etc/sysconfig/network-scripts/ifcfg-ib0
+
+cat /etc/sysconfig/network-scripts/ifcfg-ib0
 ```
 
 ### ### 3.5.5 configure NetworkManager to *not* override local /etc/resolv.conf
@@ -271,9 +284,11 @@ systemctl restart NetworkManager
 
 ### ### 3.5.6 Initiate ib0 (InfiniBand Interface 0)
 ```bash
-ifup ib0
+ip a
 
 ibstat
+
+ibstatus
 
 ibhosts
 ```
@@ -310,13 +325,13 @@ grep device /etc/warewulf/provision.conf
 
 ### ### Restart/enable relevant services to support provisioning
 ```bash
-systemctl enable httpd.service
+systemctl enable  httpd.service
 systemctl restart httpd
 
 systemctl enable dhcpd.service
 
 systemctl enable tftp.socket
-systemctl start tftp.socket
+systemctl start  tftp.socket
 ```
 
 ## ## [3.8 Define compute image for provisioning][contents]
@@ -330,9 +345,9 @@ echo ${CHROOT}
 ### ### 3.8.1 Build initial BOS (Base OS) image
 ```bash
 # chroot 를 생성할 때 참고하는 template file.
-cat /usr/libexec/warewulf/wwmkchroot/rocky-8.tmpl
+cat /usr/libexec/warewulf/wwmkchroot/rocky-9.tmpl
 
-wwmkchroot  -v rocky-8  ${CHROOT} >> ~/dasan_log_ohpc_initial-BaseOS.txt 2>&1
+wwmkchroot -v rocky-9  ${CHROOT} >> ~/dasan_log_ohpc_initial-BaseOS.txt 2>&1
 tail ~/dasan_log_ohpc_initial-BaseOS.txt
 ```
 
@@ -350,7 +365,7 @@ yum -y --installroot=${CHROOT} update  >> ~/dasan_log_ohpc_update_nodeimage.txt 
 tail ~/dasan_log_ohpc_update_nodeimage.txt
 
 yum -y --installroot ${CHROOT} install epel-release  \
->> ~/dasan_log_ohpc_update_nodeimage.txt 2>&1
+>>   ~/dasan_log_ohpc_update_nodeimage.txt 2>&1
 tail ~/dasan_log_ohpc_update_nodeimage.txt
 ```
 #### #### CHROOT 에 OpenHPC Repository 추가.
@@ -372,7 +387,7 @@ tail ~/dasan_log_ohpc_meta-package.txt
 
 #### #### updated to enable DNS resolution.
 ```bash
-cat /etc/resolv.conf
+cat   /etc/resolv.conf
 cp -p /etc/resolv.conf  ${CHROOT}/etc/resolv.conf  
 ```
 
@@ -406,6 +421,14 @@ yum -y --installroot=$CHROOT install lmod-ohpc
 
 ```
 
+#### #### 기타
+```bash
+
+# dnf-makecache.timer disable
+ chroot  $CHROOT  systemctl disable     dnf-makecache.timer
+
+```
+
 ### ### 3.8.3 Customize system configuration
 
 #### #### Initialize warewulf database and ssh_keys
@@ -422,16 +445,17 @@ mkdir /opt/intel
 
 cat  ${CHROOT}/etc/fstab
 
-echo "${MASTER_HOSTNAME}:/home         /home         nfs nfsvers=3,nodev,nosuid 0 0" >> ${CHROOT}/etc/fstab
-echo "${MASTER_HOSTNAME}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=3,nodev 0 0"        >> ${CHROOT}/etc/fstab
-echo "${MASTER_HOSTNAME}:/opt/intel    /opt/intel    nfs nfsvers=3,nodev 0 0"        >> ${CHROOT}/etc/fstab
+echo " " >> ${CHROOT}/etc/fstab
+echo "${MASTER_HOSTNAME}:/home         /home         nfs nfsvers=4,nodev,nosuid 0 0" >> ${CHROOT}/etc/fstab
+echo "${MASTER_HOSTNAME}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=4,nodev 0 0"        >> ${CHROOT}/etc/fstab
+echo "${MASTER_HOSTNAME}:/opt/intel    /opt/intel    nfs nfsvers=4,nodev 0 0"        >> ${CHROOT}/etc/fstab
 
 # 아래는 data 디렉토리를 별도로 구성하는 경우에만.  
-#echo "${MASTER_HOSTNAME}:/data         /data         nfs nfsvers=3,nodev 0 0">> ${CHROOT}/etc/fstab  
+#echo "${MASTER_HOSTNAME}:/data         /data         nfs nfsvers=4,nodev 0 0">> ${CHROOT}/etc/fstab  
 #mkdir ${CHROOT}/data
 
 # 아래는 Dell 서버의 경우 (racadm을 노드에서 사용)  
-#echo "${MASTER_HOSTNAME}:/opt/dell     /opt/dell     nfs nfsvers=3,nodev 0 0" >> ${CHROOT}/etc/fstab  
+#echo "${MASTER_HOSTNAME}:/opt/dell     /opt/dell     nfs nfsvers=4,nodev 0 0" >> ${CHROOT}/etc/fstab  
 #mkdir ${CHROOT}/opt/dell
 
 cat  ${CHROOT}/etc/fstab  
@@ -521,7 +545,7 @@ yum -y install beegfs-client beegfs-helperd beegfs-utils
 
 # Enable OFED support in client
 perl -pi -e "s/^buildArgs=-j8/buildArgs=-j8 BEEGFS_OPENTK_IBVERBS=1/" \
-/etc/beegfs/beegfs-client-autobuild.conf
+     /etc/beegfs/beegfs-client-autobuild.conf
 
 # Define client's management host
 /opt/beegfs/sbin/beegfs-setup-client -m ${sysmgmtd_host}
@@ -529,6 +553,27 @@ systemctl start beegfs-helperd
 
 # Build kernel and mount file system
 systemctl start beegfs-client
+```
+
+```bash
+# Add BeeGFS client software to compute node image
+wget -P $CHROOT/etc/yum.repos.d https://www.beegfs.io/release/beegfs 7.2.1/dists/beegfs-rhel8.repo
+
+yum -y --installroot=$CHROOT install beegfs-client beegfs-helperd beegfs-utils
+
+# Disable auto-build of kernel module in compute node image
+perl -pi -e "s/^buildEnabled=true/buildEnabled=false/" $CHROOT/etc/beegfs/beegfs-client-autobuild.conf
+
+rm -f $CHROOT/var/lib/beegfs/client/force-auto-build
+
+# Enable client daemons on compute nodes
+chroot $CHROOT systemctl enable beegfs-helperd beegfs-client
+
+# Copy client config to compute nodes
+cp /etc/beegfs/beegfs-client.conf $CHROOT/etc/beegfs/beegfs-client.conf
+
+# Include kernel module in warewulf bootstrap
+echo "drivers += beegfs" >> /etc/warewulf/bootstrap.conf
 ```
 
 #### #### 3.8.4.6 Add Lustre client 
@@ -599,6 +644,7 @@ wwsh file list
 wwsh file import /etc/passwd
 wwsh file import /etc/group
 wwsh file import /etc/shadow
+
 wwsh file import /etc/munge/munge.key
 
 wwsh file list
@@ -607,7 +653,7 @@ wwsh file list
 ## ## [3.9 Finalizing provisioning configuration][contents]
 
 
-### ### 3.8.0 /etc/warewulf/vnfs.conf 수정.
+### ### 3.9.0 /etc/warewulf/vnfs.conf 수정.
 
 ```bash
 cp  /etc/warewulf/vnfs.conf{,.org}  # conf file backup.
@@ -651,6 +697,7 @@ cat /etc/crontab
 cat  /etc/warewulf/bootstrap.conf
 
 cat << EOF >> /etc/warewulf/bootstrap.conf
+
 # Dasandata additions
 drivers  += updates/kernel/
 modprobe += ahci, nvme, e1000e
@@ -676,7 +723,7 @@ wwsh vnfs list
 echo ${CHROOT}
 
 wwvnfs --chroot ${CHROOT}
-# or wwvnfs --chroot /opt/ohpc/admin/images/rocky8
+# or wwvnfs --chroot /opt/ohpc/admin/images/rocky9
 
 wwsh vnfs list
 ```
@@ -706,7 +753,7 @@ wwsh node list
 ```bash
 wwsh provision list
 
-wwsh -y provision set node01 --vnfs=rocky8  --bootstrap=`uname -r ` \
+wwsh -y provision set node01 --vnfs=rocky9  --bootstrap=`uname -r ` \
 --files=dynamic_hosts,passwd,group,shadow,network,munge.key
 
 wwsh provision list
@@ -818,14 +865,15 @@ cat /etc/network.wwsh
 
 ```
 
-#### #### node 에 root 계정이 password로 접근할 수 없도록 sshd 설정을 변경.
+#### #### (노드를 외부ip 에서 접속할 경우에만) node 에 root 계정이 password로 접근할 수 없도록 sshd 설정을 변경. 
 ```bash
 wwsh vnfs list
 export CHROOT=/opt/ohpc/admin/images/rocky8
 
 grep   PermitRootLogin  ${CHROOT}/etc/ssh/sshd_config
-sed -i 's/#PermitRootLogin yes/PermitRootLogin without-password/'  ${CHROOT}/etc/ssh/sshd_config
 
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-password/' \
+       ${CHROOT}/etc/ssh/sshd_config
 wwvnfs --chroot  ${CHROOT}
 ```
 
@@ -848,6 +896,12 @@ ping -c 4 node01
 ssh node01
 
 df -hT | grep -v tmpfs
+
+
+# chrony가 동기화되었는지 확인
+chronyc tracking
+chronyc sources
+chronyc sourcestats
 ```
 
 ***
@@ -882,21 +936,21 @@ tail -1 ~/dasan_log_ohpc_autotools,meta-package.txt
 
 ## ## 4.2 Compilers
 ```bash
-yum -y install  gnu9-compilers-ohpc >> ~/dasan_log_ohpc_Compilers.txt 2>&1
+yum -y install  gnu12-compilers-ohpc >> ~/dasan_log_ohpc_Compilers.txt 2>&1
 tail -1 ~/dasan_log_ohpc_Compilers.txt
 ```
 
 ## ## 4.3 MPI Stacks 
 ```bash
-yum -y install  openmpi4-gnu9-ohpc mpich-ofi-gnu9-ohpc mpich-ucx-gnu9-ohpc \
- mvapich2-gnu9-ohpc >> ~/dasan_log_ohpc_MPI-Stacks.txt 2>&1
+yum -y install  openmpi4-pmix-gnu12-ohpc mpich-ofi-gnu12-ohpc mpich-ucx-gnu12-ohpc mvapich2-gnu12-ohpc \
+       >> ~/dasan_log_ohpc_MPI-Stacks.txt 2>&1
 tail -1 ~/dasan_log_ohpc_MPI-Stacks.txt
 ```
 
 ## ## 4.4 Performance Tools
 ### ### Install perf-tools meta-package
 ```bash
-yum -y install  ohpc-gnu9-perf-tools  ohpc-gnu9-geopm \
+yum -y install  ohpc-gnu12-perf-tools  ohpc-gnu12-geopm \
  >> ~/dasan_log_ohpc_perf-tools.txt 2>&1
 tail -1 ~/dasan_log_ohpc_perf-tools.txt
 ```
@@ -904,34 +958,35 @@ tail -1 ~/dasan_log_ohpc_perf-tools.txt
 ## ## 4.5 Setup default development environment
 
 ```bash
-yum -y install   lmod-defaults-gnu9-openmpi4-ohpc  >> ~/dasan_log_ohpc_lmod.txt 2>&1
+yum -y install   lmod-defaults-gnu12-openmpi4-ohpc  >> ~/dasan_log_ohpc_lmod.txt 2>&1
 tail -1 ~/dasan_log_ohpc_lmod.txt
 ```
 
 ## ## 4.6 3rd Party Libraries and Tools
 ### ### Install 3rd party libraries/tools meta-packages built with GNU toolchain
 ```bash
-yum -y install ohpc-gnu9-serial-libs ohpc-gnu9-io-libs ohpc-gnu9-python-libs \
- ohpc-gnu9-runtimes >> ~/dasan_log_ohpc_3rdPartyLib.txt 2>&1
+yum -y install ohpc-gnu12-serial-libs ohpc-gnu12-io-libs ohpc-gnu12-python-libs ohpc-gnu12-runtimes \
+     >> ~/dasan_log_ohpc_3rdPartyLib.txt 2>&1
 tail -1 ~/dasan_log_ohpc_3rdPartyLib.txt
 ```
 
 ### ### Install parallel lib meta-packages for all available MPI toolchains
 ```bash
-yum -y install  ohpc-gnu9-mpich-parallel-libs ohpc-gnu9-openmpi4-parallel-libs \
+yum -y install  ohpc-gnu12-mpich-parallel-libs ohpc-gnu12-openmpi4-parallel-libs \
   >> ~/dasan_log_ohpc_parallellib.txt 2>&1
 tail -1 ~/dasan_log_ohpc_parallellib.txt
 ```
 
 ## ## 4.7 Optional Development Tool Builds
 
+** 2023-10-13 현재 "GPG check FAILED" 이 발생하며 진행되지 않음.
 ### ### Enable Intel oneAPI and install OpenHPC compatibility packages
 ```bash
 yum -y install intel-oneapi-toolkit-release-ohpc   >> ~/dasan_log_ohpc_inteloneapi.txt 2>&1
 
 rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
 
-yum -y install intel-compilers-devel-ohpc intel-mpi-devel-ohpc\
+yum -y install intel-compilers-devel-ohpc intel-mpi-devel-ohpc \
   >> ~/dasan_log_ohpc_inteloneapi.txt 2>&1
 
 tail -1 ~/dasan_log_ohpc_inteloneapi.txt
@@ -939,28 +994,31 @@ tail -1 ~/dasan_log_ohpc_inteloneapi.txt
 
 ### ### Install 3rd party libraries/tools meta-packages built with Intel toolchain
 ```bash 
-yum -y install  ohpc-intel-serial-libs ohpc-intel-geopm ohpc-intel-io-libs \
-ohpc-intel-perf-tools ohpc-intel-python3-libs ohpc-intel-mpich-parallel-libs \
-ohpc-intel-mvapich2-parallel-libs ohpc-intel-openmpi4-parallel-libs \
-ohpc-intel-impi-parallel-libs   >> ~/dasan_log_ohpc_inteloneapi_3rdparty.txt 2>&1
+yum -y install                     \
+ openmpi4-pmix-intel-ohpc          \
+ ohpc-intel-serial-libs            \
+ ohpc-intel-geopm                  \
+ ohpc-intel-io-libs                \
+ ohpc-intel-perf-tools             \
+ ohpc-intel-python3-libs           \
+ ohpc-intel-mpich-parallel-libs    \
+ ohpc-intel-mvapich2-parallel-libs \
+ ohpc-intel-openmpi4-parallel-libs \
+ ohpc-intel-impi-parallel-libs     \
+  >> ~/dasan_log_ohpc_inteloneapi_3rdparty.txt 2>&1
 
 tail -1  ~/dasan_log_ohpc_inteloneapi_3rdparty.txt
 ```
 
-### ### Fast way ;)  (use script)
-```bash
-cd ~
-git clone https://github.com/dasandata/Open_HPC
-cat ./Open_HPC/Provisioning/4_Install_OpenHPC_Development_Components_2.4.sh
 
-bash ./Open_HPC/Provisioning/4_Install_OpenHPC_Development_Components_2.4.sh
-```
 ***
 
 # # [5. Resource Manager Startup][contents]
 
 ## slurm.conf 의 NodeName 및  PartitionName 정보 수정
 ```bash
+
+cat /etc/slurm/slurm.conf | grep Oversubscribe
 
 sed -i 's/Oversubscribe=EXCLUSIVE/Oversubscribe=NO/' /etc/slurm/slurm.conf 
 
@@ -1171,9 +1229,10 @@ mysql
 ```
 
 ```bash
-firewall-cmd --add-port=6819/tcp  --permanent  ## slurmdbd  port
-firewall-cmd --add-port=3306/tcp  --permanent  ## mysql  port
-firewall-cmd  --reload
+# 이부분은 안해도 됩니다.
+#firewall-cmd --add-port=6819/tcp  --permanent  ## slurmdbd  port
+#firewall-cmd --add-port=3306/tcp  --permanent  ## mysql  port
+#firewall-cmd  --reload
 ```
 
 ```bash
@@ -1203,7 +1262,7 @@ mysql -u  slurm   -p    slurm_acct_db
 ```bash
 grep AccountingStorageType  /etc/slurm/slurm.conf
 
-sed -i 's/#AccountingStorageType/AccountingStorageType/' /etc/slurm/slurm.conf
+sed -i 's#accounting_storage/none#accounting_storage/slurmdbd#' /etc/slurm/slurm.conf
 
 grep AccountingStorageType  /etc/slurm/slurm.conf
 
@@ -1217,9 +1276,20 @@ sacct
 ```
 \# job을 실행한 후 sacct 를 실행 했을 때 과거 작업 목록이 표시 되어야 합니다. 
 
+## ## Slurm Database Backup & Restore
+\# Backup
+```bash
+mysqldump   slurm_acct_db > backup_slurm_acct_db.sql
+```
+
+\# Restore
+```bash
+mysql       slurm_acct_db < backup_slurm_acct_db.sql
+```
+
 ***
 
-## ## make cgroup.conf
+## ## Re make cgroup.conf
 
 ```bash
 cat << EOF > /etc/slurm/cgroup.conf
@@ -1230,7 +1300,6 @@ cat << EOF > /etc/slurm/cgroup.conf
 # See man slurm.conf and man cgroup.conf for further
 # information on cgroup configuration parameters
 #--
-CgroupAutomount=yes
 
 ConstrainCores=yes
 ConstrainRAMSpace=no
@@ -1245,8 +1314,7 @@ cat /etc/slurm/cgroup.conf
 ###
 cat /etc/slurm/slurm.conf | grep JobAcctGatherType
 
-sed -i 's/#JobAcctGatherType/JobAcctGatherType/'        /etc/slurm/slurm.conf 
-sed -i 's#jobacct_gather/linux#jobacct_gather/cgroup#'  /etc/slurm/slurm.conf
+sed -i 's#jobacct_gather/none#jobacct_gather/cgroup#'  /etc/slurm/slurm.conf
 
 cat /etc/slurm/slurm.conf | grep JobAcctGatherType
 
@@ -1260,15 +1328,12 @@ cat /etc/slurm/slurm.conf | grep TaskPlugin=
 ###
 cat /etc/slurm/slurm.conf | grep  ProctrackType
 
-sed -i 's#ProctrackType=proctrack/pgid#ProctrackType=proctrack/cgroup#' /etc/slurm/slurm.conf
-
-cat /etc/slurm/slurm.conf | grep  ProctrackType
 ```
 
 ```bash
 systemctl restart slurmctld 
 
-pdsh -w node[01-02],gpu01   systemctl restart slurmd
+pdsh -w node[01-02]   systemctl restart slurmd
 ```
 
 ```bash
@@ -1287,10 +1352,10 @@ stress -c 4
 ```bash
 
 dnf config-manager --add-repo \
-https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo
 
 dnf config-manager --installroot=$CHROOT --add-repo \
-https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo
 
 ```
 
@@ -1328,104 +1393,13 @@ ll  ${CHROOT}/lib/modules/$(uname -r)/extra/drivers/video/nvidia/nvidia.ko
 # Enable nvidia persiste mode
 chroot  ${CHROOT}  systemctl enable nvidia-persistenced
 
-
-wwvnfs --chroot  ${CHROOT}
-wwsh vnfs list
 ```
 
-
-## ## CUDA 설치 (master only)
+## ## nvlink GPU 필수 package
 ```bash
-yum -y install cuda-11-0 cuda-11-1 cuda-11-2 cuda-11-3 cuda-11-4 cuda-11-5 \
->> dasan_log_ohpc_cuda-master.txt 2>&1
-tail dasan_log_ohpc_cuda-master.txt
+yum -y install --installroot ${CHROOT}   nvidia-fabric-manager cuda-drivers-fabricmanager nvidia-fabric-manager-devel   
 
-ls -l /usr/local | grep cuda
-```
-
-```bash
-mkdir /opt/ohpc/pub/apps/cuda/
-
-for I in  11.0 11.1 11.2 11.3 11.4 
-  do echo $I
-  mv /usr/local/cuda-$I  /opt/ohpc/pub/apps/cuda/$I
-  done
-
-ll /usr/local/ | grep cuda
-
-ll /opt/ohpc/pub/apps/cuda/
-
-# Local에 있는 심볼릭 링크 제거
-rm -f /usr/local/cuda
-rm -f /usr/local/cuda-11
-```
-
-## ## multiple CUDNN to MASTER
-```bash
-mkdir /root/cudnn/
-cd    /root/cudnn/
-
-echo "cudnn-11.0-linux-x64-v8.0.2.39.tgz
-cudnn-11.1-linux-x64-v8.0.5.39.tgz
-cudnn-11.2-linux-x64-v8.1.1.33.tgz
-cudnn-11.3-linux-x64-v8.2.1.32.tgz
-cudnn-11.4-linux-x64-v8.2.4.15.tgz" > cudnn.txt
-
-# copy cudnn from file server.
-mount -t nfs  192.168.0.5:/file   /mnt
-for I in $(cat cudnn.txt)
-  do  cp  /mnt/12_NVIDIA_CUDNN/1_Linux/$I  /root/cudnn/
-done
-umount /mnt
-
-# 압축 해제 후 /opt/ohpc/pub/apps/cuda 아래로 이동.
-for I in $(cat cudnn.txt)
-  do  echo "$I"
-  VER=$(echo "$I" | cut -d '-' -f 2)
-  echo "CUDA-$VER"
-  tar -xzf $I
-
-  chmod a+r  cuda/include/*
-  chmod a+r  cuda/lib64/*
-
-  mv  cuda/include/cudnn.h  /opt/ohpc/pub/apps/cuda/$VER/include/
-  mv  cuda/lib64/libcudnn*  /opt/ohpc/pub/apps/cuda/$VER/lib64/
-
-  rm -rf   cuda/
-done
-
-cd ~
-
-```
-## ## Add Multiple Cuda Module
-```bash
-cd /root/
-git clone https://github.com/dasandata/Open_HPC
-
-cd /root/Open_HPC/
-git pull
-
-# Add CUDA Module File by each version
-mkdir -p /opt/ohpc/pub/modulefiles/cuda
-MODULES_DIR="/opt/ohpc/pub/modulefiles"
-
-for CUDA_VERSION in 11.0 11.1 11.2 11.3 11.4
-  do cp -a /root/Open_HPC/Module_Template/cuda.txt ${MODULES_DIR}/cuda/${CUDA_VERSION}
-  sed -i "s/{version}/${CUDA_VERSION}/" ${MODULES_DIR}/cuda/${CUDA_VERSION}
-done
-
-ll /opt/ohpc/pub/modulefiles/cuda/
-```
-```bash
-rm -rf  ~/.lmod.d/.cache
-
-module av | grep cuda
-
-ml load cuda
-nvcc -V
-
-ml swap cuda cuda/11.0
-nvcc -V
+chroot $CHROOT systemctl enable nvidia-fabricmanager
 ```
 
 ## ## gpustat (python3) install to VNFS
@@ -1444,6 +1418,91 @@ exit
 wwvnfs --chroot  ${CHROOT}
 
 # gpustat  --force-color 
+```
+
+## ## CUDA 설치 (master only)
+```bash
+yum -y install cuda-12-2   >> dasan_log_ohpc_cuda-master.txt 2>&1
+tail dasan_log_ohpc_cuda-master.txt
+
+ls -l /usr/local | grep cuda
+```
+
+```bash
+mkdir /opt/ohpc/pub/apps/cuda/
+
+for VER in  12.2  
+  do echo $VER
+  mv /usr/local/cuda-$VER  /opt/ohpc/pub/apps/cuda/$VER
+  done
+
+ll /usr/local/ | grep cuda
+
+ll /opt/ohpc/pub/apps/cuda/
+
+# Local에 있는 심볼릭 링크 제거
+rm -f /usr/local/cuda
+rm -f /usr/local/cuda-12
+```
+
+## ## CUDNN to MASTER
+```bash
+mkdir /root/cudnn/
+cd    /root/cudnn/
+
+# copy cudnn from file server.
+I="cudnn-linux-x86_64-8.6.0.163_cuda11-archive.tar"
+
+mount -t nfs  192.168.0.5:/file   /mnt
+cp  /mnt/12_NVIDIA_CUDNN/1_LINUX/$I  /root/cudnn/
+
+umount /mnt
+
+# 압축 해제 후 /opt/ohpc/pub/apps/cuda 아래로 이동.
+
+VER=12.2
+echo "CUDA-$VER"
+
+tar -xvf $I
+
+chmod a+r  cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/*
+chmod a+r  cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/*
+
+mv  cudnn-linux-x86_64-8.6.0.163_cuda11-archive/include/cudnn.h  /opt/ohpc/pub/apps/cuda/$VER/include/
+mv  cudnn-linux-x86_64-8.6.0.163_cuda11-archive/lib/libcudnn*    /opt/ohpc/pub/apps/cuda/$VER/lib64/
+
+rm -rf   cuda/
+
+cd ~
+
+```
+## ## Add  Cuda Module
+```bash
+cd /root/
+git clone https://github.com/dasandata/Open_HPC
+
+cd /root/Open_HPC/
+git pull
+
+# Add CUDA Module File by each version
+mkdir -p /opt/ohpc/pub/modulefiles/cuda
+MODULES_DIR="/opt/ohpc/pub/modulefiles"
+
+for CUDA_VERSION in 12.2
+  do cp -a /root/Open_HPC/Module_Template/cuda.txt ${MODULES_DIR}/cuda/${CUDA_VERSION}
+  sed -i "s/{version}/${CUDA_VERSION}/" ${MODULES_DIR}/cuda/${CUDA_VERSION}
+done
+
+ll /opt/ohpc/pub/modulefiles/cuda/
+
+```
+
+```bash
+module av | grep cuda
+
+ml load cuda
+nvcc -V
+
 ```
 
 ## ## Slurm gres.conf
@@ -1473,7 +1532,7 @@ vi /etc/slurm/slurm.conf  # Gres 부분 설정 변경
 ```bash
 systemctl  restart  slurmctld 
 
-scontrol  update  nodename=node01 state=resume
+scontrol  update  nodename=gpu01 state=resume
 
 sinfo
 
@@ -1490,6 +1549,13 @@ sinfo
 squeue
 ```
 
+```bash
+
+conda activate pythorch
+
+python -c "import torch; print(torch.cuda.is_available())"
+
+```
 
 
 ***

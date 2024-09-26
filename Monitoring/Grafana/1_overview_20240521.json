@@ -20,7 +20,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 9,
   "links": [
     {
       "asDropdown": true,
@@ -90,10 +90,7 @@
       "type": "grafana-clock-panel"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -140,7 +137,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
@@ -163,10 +160,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -276,6 +270,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -323,7 +318,7 @@
         "content": " - test.",
         "mode": "markdown"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
@@ -357,7 +352,7 @@
         "content": "##### === 관리자 ===\n\n##### === 유지보수 업체 ===\n(주)다산데이타  \n02-871-9932  \ndasan_as@dasandata.co.kr  ",
         "mode": "markdown"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
@@ -391,7 +386,7 @@
         "content": "[구글](http://google.com)\n\n[User Guide for OpenHPC Cluster](https://github.com/dasandata/Open_HPC/tree/master/Document/User%20Guide)\n\n",
         "mode": "markdown"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
@@ -405,10 +400,7 @@
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -511,6 +503,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -535,10 +528,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -656,6 +646,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -679,10 +670,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -980,6 +968,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -991,11 +980,13 @@
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "expr": "slurm_nodes_down + slurm_nodes_drain",
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "Down,Drain",
+          "range": true,
           "refId": "F"
         },
         {
@@ -1064,10 +1055,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1117,13 +1105,14 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "expr": "slurm_nodes_down",
           "format": "time_series",
           "instant": true,
@@ -1176,10 +1165,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1289,6 +1275,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -1300,12 +1287,14 @@
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "expr": "slurm_queue_completing != 0",
           "format": "time_series",
           "hide": true,
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "Completing Jobs",
+          "range": true,
           "refId": "A"
         },
         {
@@ -1348,10 +1337,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1421,13 +1407,14 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "expr": "DCGM_FI_DEV_GPU_UTIL{instance=~\"10.1.1.*:9400\"}",
           "format": "time_series",
           "hide": false,
@@ -1442,7 +1429,10 @@
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "expr": "",
           "hide": false,
+          "instant": false,
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1450,10 +1440,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1592,6 +1579,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -1603,6 +1591,7 @@
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "expr": "avg(DCGM_FI_DEV_GPU_UTIL{instance=~\"10.1.1.*:9400\"})",
           "format": "time_series",
           "instant": false,
@@ -1616,10 +1605,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1693,13 +1679,14 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "(1 - avg(rate(node_cpu_seconds_total{job=~\"$job\",mode=\"idle\",note=\"compute-node\"}[1m])) by (instance)) * 100",
           "hide": false,
@@ -1713,10 +1700,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1869,6 +1853,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -1893,10 +1878,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1970,13 +1952,14 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "expr": "(1 - (node_memory_MemAvailable_bytes{instance=~\"10.1.1.*:9100\",note=\"compute-node\"} / (node_memory_MemTotal_bytes{instance=~\"10.1.1.*:9100\",note=\"compute-node\"})))* 100",
           "hide": false,
           "instant": true,
@@ -1989,10 +1972,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ddfb0sptuu6tce"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2160,6 +2140,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "multi",
           "sort": "none"
         }
@@ -2171,10 +2152,12 @@
             "type": "prometheus",
             "uid": "ddfb0sptuu6tce"
           },
+          "editorMode": "code",
           "expr": "avg(1 - (node_memory_MemAvailable_bytes{instance=~\"10.1.1.*:9100\",note=\"compute-node\"} / (node_memory_MemTotal_bytes{instance=~\"10.1.1.*:9100\",note=\"compute-node\"})))* 100",
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "Used Memory",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2313,6 +2296,7 @@
     "from": "now-5m",
     "to": "now"
   },
+  "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {
     "refresh_intervals": [
       "5s",
@@ -2329,7 +2313,7 @@
   },
   "timezone": "",
   "title": "1)  Overview",
-  "uid": "1KnADkqMk",
-  "version": 7,
+  "uid": "1KnADkqMkyyrgddgfdg",
+  "version": 6,
   "weekStart": ""
 }
